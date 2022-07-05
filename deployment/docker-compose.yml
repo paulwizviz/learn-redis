@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+
+  embedded:
+    image: ${REDIS_EMBED_IMAGE}
+    container_name: ${REDIS_EMBED_CONTAINER}
+    working_dir: /opt
+    command: /usr/local/bin/redis-server
+    networks:
+      - local
+
+networks:
+  local:
+    name: $NETWORK
